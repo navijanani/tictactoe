@@ -123,8 +123,9 @@ const GameBoard = () => {
   };
 
   return (
-    <div>
-      <h1 className="Tit">XO Game</h1>
+    <div className="game">
+      <h1 >XO Game</h1>
+      <div className="currentPlayer">
       <button onClick={handleHomeClick}>Home</button>
       <p>
         Current Player:{" "}
@@ -136,6 +137,8 @@ const GameBoard = () => {
         <br />
         Current Symbol: {currentPlayer ? currentPlayer.symbol : "N/A"}
       </p>
+      </div>
+     
       <div className="board">
         {board.map((cell, index) => (
           <div

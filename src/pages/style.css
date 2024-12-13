@@ -1,86 +1,149 @@
-/* src/style.css */
-
-/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Work+Sans:ital@0;1&display=swap');
 * {
     margin: 0;
-    padding: 0;
+    left: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-  }
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
   
+  }
+ 
   body {
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    color: #333;
+    background-size: 50px;
+    background-color: #fdf8e2;
+    background-image: url(../component/BG-Texture.svg);
+    background-repeat: repeat;
+    
+
+ 
+    
   }
-  
+
   h1, h2 {
     text-align: center;
-    color: #333;
+    color: #f4d4a9;
     margin-bottom: 20px;
+    text-shadow: #833e29 -3px 3px 0px;
+   
   }
   
   /* Home Page Styles */
   .home {
     text-align: center;
+    margin-top: 250px;
   }
   
   .Homes {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 20px;
   }
   
   .Box {
-    background-color: #fff;
-    border-radius: 10px;
+    position: relative;
+    background-image: url(../component/Box-Texture.svg);
+    background-color: #974a2c;
+    border: 4px solid #833e29; /* Inner border */
+    width: 260px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    transition: transform 0.3s ease;
+    border-radius: 10px;
   }
   
-  .Box:hover {
-    transform: scale(1.05);
+  .Box::before,
+  .Box::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -10px;
+    right: -10px;
+    bottom: -15px;
+    border: 20px solid #e78959; /* Middle border */
+    transform: translateY(-5px);
+    z-index: -1;
+    border-radius: 15px;
   }
+  
+  .Box::after {
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -20px;
+    z-index: -2;
+    background-color: white;
+    border: 7px solid white; /* Outer border */
+    border-radius: 20px;
+    box-shadow: rgba(131, 62, 41,0.25) -6px 6px 0px;
+  }
+  
+
+
+
   
   button {
-    background-color: #6899f4;
+    background-color: #f4d4a9;
     border: none;
-    color: white;
+    color: #833e29;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: #833e29 -3px 3px 0px;
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #f4bd7f;
   }
   
   button:focus {
     outline: none;
   }
-  
   /* Game Setup Page */
   .container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 33%;
+    background-image: url(../component/Box-Texture.svg);
+    background-color: #974a2c;
+    border: 4px solid #833e29; /* Inner border */
+    width: fit-content;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    font-size: 24px;
+
+  }
+
+  
+  .container::before,
+  .container::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -10px;
+    right: -10px;
+    bottom: -15px;
+    border: 20px solid #e78959; /* Middle border */
+    transform: translateY(-5px);
+    z-index: -1;
+    border-radius: 15px;
   }
   
+  .container::after {
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -20px;
+    z-index: -2;
+    background-color: white;
+    border: 7px solid white; /* Outer border */
+    border-radius: 20px;
+    box-shadow: rgba(131, 62, 41,0.25) -6px 6px 0px;
+  }
   form div {
     margin-bottom: 15px;
   }
@@ -89,12 +152,36 @@
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #833e29;
+    background-color: #f4d4a9;
     border-radius: 5px;
+    
+  }
+  option,select{
+    color:  #833e29;
+  }
+.container  label{
+    color: #f4d4a9;
+    margin-bottom: 20px;
+    text-shadow: #833e29 -3px 3px 0px;
+  }
+  input,select:focus {
+  outline: 0;
   }
   
   select {
     cursor: pointer;
+  }
+
+  .game{
+    margin-top: 5%;
+  }
+  .currentPlayer{
+    display: flex;
+    padding: 40px;
+    margin: 20px;
+    justify-content: center;
+
   }
   
   /* Game Board Page */
@@ -104,31 +191,26 @@
     grid-gap: 10px;
     width: 300px;
     margin: 0 auto;
+    border-radius: 20px;
   }
   
   .cell {
     width: 80px;
     height: 80px;
+    border-radius: 20px;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    background-color: #974a2c;
+    border: 4px solid #833e29;
     font-size: 36px;
     font-weight: bold;
     color: #333;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
-  .cell:hover {
-    background-color: #f4f4f4;
-  }
-  
-  .cell:focus {
-    outline: none;
-  }
-  
+
   .board .cell.x {
     color: #ff4c4c;
   }
